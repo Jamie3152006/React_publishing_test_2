@@ -1,5 +1,6 @@
 import {useState} from "react";
 import './ImageCard.css';
+import {Link} from 'react-router';
 
 function ImageCard({image}){
     const [liked, setLiked] = useState(false);                
@@ -8,7 +9,9 @@ function ImageCard({image}){
     return(
         <>
             <div className="card">
-                <img src={image.src} alt={image.title}/>
+                <Link to={`/image/${image.id}`}>
+                    <img src={image.src} alt={image.title} />
+                </Link>
                 <p>{image.title}</p>
                 <button onClick = {() => setLiked(!liked)}>
                     {liked ? "♥︎" : "♡" }
